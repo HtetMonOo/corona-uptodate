@@ -121,7 +121,7 @@ export const gaming = [
   },
 ];
 
-export const annualVehiclesSales = [
+export const annualVehiclesdeaths = [
   { year: 2011, USA: 171763, China: 5070 },
   { year: 2012, USA: 53240, China: 9900 },
   { year: 2013, USA: 96700, China: 15340 },
@@ -337,7 +337,7 @@ export const carbonEmmision = [
   },
 ];
 
-export const booksSale = [{
+export const booksdeath = [{
   year: 1970, mysteries: 9, scienceFiction: 16, romance: 5, fantasy: 4, thrillers: 19,
 }, {
   year: 1971, mysteries: 15, scienceFiction: 18, romance: 2, fantasy: 4, thrillers: 14,
@@ -796,47 +796,126 @@ export const contributors = [
   },
 ];
 
-export const sales = {
-  2017: [
-    { date: new Date(2015, 10, 15), sale: 50, total: 987 },
-    { date: new Date(2015, 10, 16), sale: 100, total: 3000 },
-    { date: new Date(2015, 10, 17), sale: 30, total: 1100 },
-    { date: new Date(2015, 10, 18), sale: 107, total: 7100 },
-    { date: new Date(2015, 10, 19), sale: 95, total: 4300 },
-    { date: new Date(2015, 10, 20), sale: 150, total: 7500 },
-    { date: new Date(2015, 10, 21), sale: 120, total: 5300 },
-    { date: new Date(2015, 10, 22), sale: 110, total: 2500 },
-    { date: new Date(2015, 10, 23), sale: 54, total: 2300 },
-    { date: new Date(2015, 10, 24), sale: 129, total: 2600 },
-    { date: new Date(2015, 10, 25), sale: 48, total: 3400 },
-    { date: new Date(2015, 10, 26), sale: 43, total: 3200 },
-  ],
-  2018: [
-    { month: 'Jan', sale: 100, total: 1000 },
-    { month: 'Feb', sale: 200, total: 4300 },
-    { month: 'Mar', sale: 50, total: 1200 },
-    { month: 'Apr', sale: 127, total: 7150 },
-    { month: 'May', sale: 105, total: 4340 },
-    { month: 'Jun', sale: 180, total: 7520 },
-    { month: 'Jul', sale: 150, total: 5380 },
-    { month: 'Aug', sale: 120, total: 2590 },
-    { month: 'Sep', sale: 59, total: 2700 },
-    { month: 'Oct', sale: 139, total: 2800 },
-    { month: 'Nov', sale: 66, total: 3450 },
-    { month: 'Dec', sale: 55, total: 3260 },
-  ],
-  2019: [
-    { month: 'Jan', sale: 170, total: 856 },
-    { month: 'Feb', sale: 150, total: 3574 },
-    { month: 'Mar', sale: 10, total: 1198 },
-    { month: 'Apr', sale: 33, total: 6150 },
-    { month: 'May', sale: 84, total: 3340 },
-    { month: 'Jun', sale: 120, total: 5520 },
-    { month: 'Jul', sale: 110, total: 3380 },
-    { month: 'Aug', sale: 90, total: 1890 },
-    { month: 'Sep', sale: 29, total: 1900 },
-    { month: 'Oct', sale: 118, total: 2300 },
-    { month: 'Nov', sale: 48, total: 3198 },
-    { month: 'Dec', sale: 12, total: 2410 },
-  ],
-};
+export const countryData = [
+  {
+    "label": "Eugenia",
+    "value": "Eugenia",
+    "role": "Master"
+  },
+  {
+    "label": "Kariane",
+    "value": "Kariane",
+    "role": "Master"
+  },
+  {
+    "label": "Louisa",
+    "value": "Louisa",
+    "role": "Master"
+  },
+  {
+    "label": "Marty",
+    "value": "Marty",
+    "role": "Master"
+  },
+  {
+    "label": "Kenya",
+    "value": "Kenya",
+    "role": "Master"
+  },
+  {
+    "label": "Hal",
+    "value": "Hal",
+    "role": "Developer"
+  },
+  {
+    "label": "Julius",
+    "value": "Julius",
+    "role": "Developer"
+  },
+  {
+    "label": "Travon",
+    "value": "Travon",
+    "role": "Developer"
+  },
+  {
+    "label": "Vincenza",
+    "value": "Vincenza",
+    "role": "Developer"
+  },
+  {
+    "label": "Dominic",
+    "value": "Dominic",
+    "role": "Developer"
+  },
+  {
+    "label": "Pearlie",
+    "value": "Pearlie",
+    "role": "Guest"
+  },
+  {
+    "label": "Tyrel",
+    "value": "Tyrel",
+    "role": "Guest"
+  },
+  {
+    "label": "Jaylen",
+    "value": "Jaylen",
+    "role": "Guest"
+  },
+  {
+    "label": "Rogelio",
+    "value": "Rogelio",
+    "role": "Guest"
+  }
+]
+
+export const simpleProducts = [
+  { 'Name': 'HD Video Player', 'ID': 0 },
+  { 'Name': 'SuperHD Video Player', 'ID': 1 },
+  { 'Name': 'SuperPlasma 50', 'ID': 2 },
+  { 'Name': 'SuperLED 50', 'ID': 3 },
+  { 'Name': 'SuperLED 42', 'ID': 4 },
+  { 'Name': 'SuperLCD 55', 'ID': 5 },
+  { 'Name': 'SuperLCD 42', 'ID': 6 },
+  { 'Name': 'SuperPlasma 65', 'ID': 7 },
+  { 'Name': 'SuperLCD 70', 'ID': 8 },
+  { 'Name': 'Projector Plus', 'ID': 9 },
+  { 'Name': 'Projector PlusHT', 'ID': 10 },
+  { 'Name': 'ExcelRemote IR', 'ID': 11 },
+  { 'Name': 'ExcelRemote Bluetooth', 'ID': 12 },
+  { 'Name': 'ExcelRemote IP', 'ID': 13 }
+];
+
+export const sales = [
+    { date: new Date(2015, 10, 15), death: 50, case: 987 },
+    { date: new Date(2015, 10, 16), death: 100, case: 3000 },
+    { date: new Date(2015, 10, 17), death: 30, case: 1100 },
+    { date: new Date(2015, 10, 18), death: 107, case: 7100 },
+    { date: new Date(2015, 10, 19), death: 95, case: 4300 },
+    { date: new Date(2015, 10, 20), death: 150, case: 7500 },
+    { date: new Date(2015, 10, 21), death: 120, case: 5300 },
+    { date: new Date(2015, 10, 22), death: 110, case: 2500 },
+    { date: new Date(2015, 10, 23), death: 54, case: 2300 },
+    { date: new Date(2015, 10, 24), death: 129, case: 2600 },
+    { date: new Date(2015, 10, 25), death: 48, case: 3400 },
+    { date: new Date(2015, 10, 26), death: 43, case: 3200 },
+  ]
+
+export const globalData =[
+ {total_cases: 29481072, active_cases: 7129600, deaths: 932207, recovered: 21419265, critical: 60321, date: new Date("2020-09-15")},
+ {total_cases: 29212123, active_cases: 7075311, deaths: 928180, recovered: 21208632, critical: 60547, date: new Date("2020-09-14")},
+ {total_cases: 28960634, active_cases: 7067543, deaths: 923932, recovered: 20969159, critical: 60556, date: new Date("2020-09-13")},
+ {total_cases: 28668650, active_cases: 7028052, deaths: 918567, recovered: 20722031, critical: 60405, date: new Date("2020-09-12")},
+ {total_cases: 28341538, active_cases: 6953742, deaths: 912602, recovered: 20475194, critical: 60355, date: new Date("2020-09-12")},
+ {total_cases: 28047100, active_cases: 6905738, deaths: 906840, recovered: 20234522, critical: 60182, date: new Date("2020-09-10")},
+ {total_cases: 27764695, active_cases: 6864406, deaths: 900634, recovered: 19999655, critical: 60001, date: new Date("2020-09-09")},
+ {total_cases: 27535456, active_cases: 6874167, deaths: 896472, recovered: 19764817, critical: 59886, date: new Date("2020-09-08")},
+ {total_cases: 27573569, active_cases: 6852650, deaths: 897406, recovered: 19823513, critical: 59985, date: new Date("2020-09-07")},
+ {total_cases: 27354442, active_cases: 6844788, deaths: 888117, recovered: 19621537, critical: 59678, date: new Date("2020-09-06")},
+ {total_cases: 27129945, active_cases: 6861695, deaths: 884013, recovered: 19384237, critical: 60570, date: new Date("2020-09-05")},
+ {total_cases: 26855265, active_cases: 6840961, deaths: 878899, recovered: 19135405, critical: 60542, date: new Date("2020-09-04")},
+ {total_cases: 26548266, active_cases: 6777416, deaths: 873464, recovered: 18897386, critical: 60621, date: new Date("2020-09-03")},
+ {total_cases: 26250919, active_cases: 6708389, deaths: 867216, recovered: 18675314, critical: 60390, date: new Date("2020-09-02")},
+ {total_cases: 25982431, active_cases: 6697419, deaths: 861254, recovered: 18424320, critical: 60849, date: new Date("2020-09-01")}
+]
+  

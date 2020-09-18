@@ -9,26 +9,28 @@ import {
   Tooltip
 } from '@devexpress/dx-react-chart-material-ui';
 
-import { Animation } from '@devexpress/dx-react-chart';
+import { Animation, EventTracker } from '@devexpress/dx-react-chart';
 
 
 const CompareCountry = ({latest}) => {
     
     return (
-        <Paper>
+        <Paper className="my-5 mx-auto" style={{width: 80+"%"}}>
         <Chart
             data={latest}
             rotated
         >
-            <ArgumentAxis />
+            <ArgumentAxis tickSize="2"/>
             <ValueAxis />
 
             <BarSeries
             valueField="total_cases"
             argumentField="name"
+            color = "gray"
             />
-            <Title text="World population" />
+            <Title text="Countries with the most Coronavirus cases" />
             <Animation />
+            <EventTracker />
             <Tooltip />
         </Chart>
         </Paper>

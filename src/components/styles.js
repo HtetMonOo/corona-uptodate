@@ -23,12 +23,17 @@ export const styles = theme => ({
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
-      width: '400px',
+      width: '350px',
       paddingTop: '20px',
+      paddingBottom: '10px',
       border: '1px solid rgba(156, 150, 150, 0.15)',
+      background: '#fff',
+      boxShadow: '0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12)',
+      borderRadius: '4px',
     },
     hoverGroup: {
       margin: 'auto',
+      width: '300px',
     },
     name: {
       marginLeft: theme.spacing(1),

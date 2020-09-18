@@ -13,6 +13,7 @@ import { getByCountry } from '../.utils';
 import { formatData } from '../funcAndStyles/func';
 import { tooltipContentBodyStyle, tooltipContentTitleStyle } from './styles';
 import Duration from './Duration';
+import Loader from './Loader';
 
 const getMonth = monthNo => {
   const months = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
@@ -50,14 +51,15 @@ const compareTargets = (
 
 
 
-const DataChart = ({globalData, classes}) => {
+const DataChart = ({globalData, countries, classes}) => {
   
+  const [ pending, setPending ] = useState(false);
   const [ data, setData ] = useState(globalData);
   const [ hover, setHover ] = useState({point: 0, series: "total_cases"});
   const [selection, setSelection] = useState([]);
   const [tooltipTarget, setTooltipTarget] = useState(null);
-  const [ country, setCountry ] = useState({ label: 'Global'});
-  const [ duration, setDuration ] = useState("month");
+  const [ country, setCountry ] = useState('Global');
+  const [ duration, setDuration ] = useState("year");
   const [state, setState] = useState({
     cases: true,
     deaths: false,
@@ -71,8 +73,7 @@ const DataChart = ({globalData, classes}) => {
   const TooltipContent = (props) => {
   const { targetItem, text, ...restProps } = props;
   const cases = targetItem.series === "total_cases" ? "cases" : targetItem.series === "deaths" ? "deaths" : "recovered";
-  
-  console.log(data[targetItem.point].date);
+
   
   if(targetItem){
   return (
@@ -129,9 +130,11 @@ const DataChart = ({globalData, classes}) => {
     }
 
     const getDataByCountry = async(country, duration) => {
+      setPending(true);
       try {
         const res = await Axios.get(getByCountry(country.label, duration));
         setData(formatData(res.data.data));
+        setPending(false);
       }
       catch {
         console.log("the catch"+duration);
@@ -141,6 +144,7 @@ const DataChart = ({globalData, classes}) => {
           case 'year': setData(globalData); break;
           default : setData(globalData);
         }
+        setPending(false);
       }
     }
 
@@ -152,57 +156,61 @@ const DataChart = ({globalData, classes}) => {
        {
           data.length !== 0 &&
        <div className="d-flex justify-content-around mx-auto" style={{width: 90+"%"}}>
-        <SideData className="w-40" classes={classes} selection={selection} hover={hover} data={data} country={country} selectCountry={selectCountry} state={state} handleChange={handleChange}/>
+        <SideData className="w-40" classes={classes} selection={selection} hover={hover} data={data} country={country} selectCountry={selectCountry} state={state} handleChange={handleChange} countries={countries}/>
         <Paper style={{width: 60+"%"}}>
           <Duration duration={duration} selectDuration={selectDuration}/>
-        <Chart
-          data={data}
-          className={classes.chart}
-        >
-          <ArgumentScale factory={scaleTime} />
-          <ArgumentAxis />
-          <ValueAxis />
           {
-            state.cases &&
-            <SplineSeries
-            name="total_cases"
-            valueField="total_cases"
-            argumentField="date"
-            color="yellow"
-          />
+            pending ? <Loader /> :
+              <Chart
+            data={data}
+            className={classes.chart}
+          >
+            <ArgumentScale factory={scaleTime} />
+            <ArgumentAxis />
+            <ValueAxis />
+            {
+              state.cases &&
+              <SplineSeries
+              name="total_cases"
+              valueField="total_cases"
+              argumentField="date"
+              color="yellow"
+            />
+            }
+            {
+              state.deaths &&
+              <SplineSeries
+              name="deaths"
+              valueField="deaths"
+              argumentField="date"
+              color="red"
+            />
+            }
+            {
+              state.recover &&
+              <SplineSeries
+              name="recovered"
+              valueField="recovered"
+              argumentField="date"
+              color="green"
+            />
+            }
+            <Stack />
+            <Legend position="bottom" rootComponent={Root} labelComponent={Label} />
+            <EventTracker onClick={click} />
+            <HoverState hover={hover} onHoverChange={changeHover} />
+            {
+              tooltipTarget &&
+              <Tooltip
+              targetItem={tooltipTarget}
+              onTargetItemChange={changeTooltip}
+              contentComponent={TooltipContent}
+            />
+            }
+            <SelectionState selection={selection} />
+          </Chart>
           }
-          {
-            state.deaths &&
-            <SplineSeries
-            name="deaths"
-            valueField="deaths"
-            argumentField="date"
-            color="red"
-          />
-          }
-          {
-            state.recover &&
-            <SplineSeries
-            name="recovered"
-            valueField="recovered"
-            argumentField="date"
-            color="green"
-          />
-          }
-          <Stack />
-          <Legend position="bottom" rootComponent={Root} labelComponent={Label} />
-          <EventTracker onClick={click} />
-          <HoverState hover={hover} onHoverChange={changeHover} />
-          {
-            tooltipTarget &&
-            <Tooltip
-            targetItem={tooltipTarget}
-            onTargetItemChange={changeTooltip}
-            contentComponent={TooltipContent}
-          />
-          }
-          <SelectionState selection={selection} />
-        </Chart>     
+             
       </Paper>
       </div> 
         }
